@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.left h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.right {
+    flex: 2;
+    padding: 20px;
+}
+
+.right h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chat-box {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.chat-box p {
+    margin: 5px 0;
+}
+
+.user-button {
+    display: block;
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.user-button.logout {
+    background-color: rgb(255, 120, 120);
+}
+
+.button-container a:hover {
+    background-color: #0056b3;
+}
+
+.chat-form {
+    display: flex;
+    align-items: center;
+}
+
+.chat-form label {
+    margin-right: 10px;
+}
+
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chat-form button {
+    margin-left: 10px;
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-form button:hover {
+    background-color: #45a049;
+}
