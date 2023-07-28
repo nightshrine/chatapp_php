@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -45,7 +45,7 @@
 
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();
-            if ($password === $user['password']) {
+            if (password_verify($password, $user['password'])) {
                 // ログイン成功時にindex.phpにリダイレクト
                 $_SESSION["id"] = $user["id"];
                 $_SESSION["name"] = $user["name"];

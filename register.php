@@ -52,8 +52,9 @@
 
         if ($result->num_rows === 0) {
             if ($password === $confirm_password) {
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-                $stmt->bind_param("sss", $name, $email, $password);
+                $stmt->bind_param("sss", $name, $email, $hashed_password);
                 $stmt->execute();
 
                 $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
