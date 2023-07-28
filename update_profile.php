@@ -49,7 +49,7 @@
             if ($password === $confirm_password) {
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $stmt = $conn->prepare("UPDATE users SET name=?, password=? WHERE id=?");
-                $stmt->bind_param("ssd", $name, $hashed_password, $_SESSION["id"]);
+                $stmt->bind_param("ssi", $name, $hashed_password, $_SESSION["id"]);
                 $stmt->execute();
                 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
                 $stmt->bind_param("s", $_SESSION["id"]);
