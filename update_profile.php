@@ -52,7 +52,7 @@
                 $stmt->bind_param("ssi", $name, $hashed_password, $_SESSION["id"]);
                 $stmt->execute();
                 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
-                $stmt->bind_param("s", $_SESSION["id"]);
+                $stmt->bind_param("i", $_SESSION["id"]);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $user = $result->fetch_assoc();
