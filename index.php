@@ -5,6 +5,7 @@ if (!isset($_SESSION["id"])) {
     header("Location: login.php");
     exit;
 }
+$_SESSION["token"] = bin2hex(random_bytes(32));
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ if (!isset($_SESSION["id"])) {
     <div class="container">
         <div class="left">
             <h2>ユーザー情報</h2>
-            <p>ユーザー名：<?= $_SESSION["name"] ?></p>
+            <p>ユーザー名：<?= htmlspecialchars($_SESSION["name"], ENT_QUOTES, 'UTF-8'); ?></p>
             <p>メールアドレス：<?= $_SESSION["email"] ?></p>
             <a href="update_profile.php" class="user-button">ユーザー情報を変更する</a>
             <a href="logout.php" class="user-button logout">ログアウト</a>
@@ -51,6 +52,7 @@ if (!isset($_SESSION["id"])) {
             <form action="send_message.php" method="post" class="chat-form">
                 <label for="message">メッセージを入力してください:</label>
                 <input type="text" id="message" name="message" required>
+                <input type="text" name="token" value=<?= $_SESSION["token"]?> hidden>
                 <button type="submit">送信</button>
             </form>
         </div>
